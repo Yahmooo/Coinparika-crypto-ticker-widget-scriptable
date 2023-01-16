@@ -39,7 +39,7 @@ You can only track coins that are listed on CoinPaprika: https://coinpaprika.com
     let txtDate = new Color("#ffffff") // Color of the Date 
     let minusPercent = new Color("#fc0303") // Red Color do Display if percent is -
     let plusPercent = new Color("#4d8535") // Green Color do Display if percent is +
-    let tokenSymbol = "btc-bitcoin" // Token need to be listed on Coinpaprika
+    let tokenSymbol = "hmmm-hmmm" // Token need to be listed on Coinpaprika
     let numberAfterCommaPrice = "2" // how many numbers should be displayed after the comma Price
     let numberAfterCommaVolume = "2" // how many numbers should be displayed after the comma Volume
     
@@ -106,7 +106,7 @@ const pricePaprika = Number(resPaprika.quotes.USD.price);
 let roundPricePaprika = pricePaprika.toFixed(numberAfterCommaPrice);
 
 const volume = (resPaprika.quotes.USD.volume_24h)
-//make number to friendly format
+//make number to friendly format code is from: https://stackoverflow.com/questions/2685911/is-there-a-way-to-round-numbers-into-a-reader-friendly-format-e-g-1-1k?noredirect=1&lq=1
 function abbrNum(number, decPlaces) {
     var orig = number;
     var dec = decPlaces;
@@ -181,7 +181,7 @@ if (config.runsInWidget) {
   Script.complete()
 }
 else {
-  widget.presentMedium()
+  widget.presentSmall()
 }
 
 function createWidget(img) {
@@ -237,7 +237,7 @@ Lockscreentop Param
 */
   } else if(args.widgetParameter == "lockscreentop") {
      let w = new ListWidget()
-     let amountTxt = w.addText(name + ":" + roundPricePaprika + "$")
+     let amountTxt = w.addText(name + " " + ":" + roundPricePaprika + "$")
          amountTxt.textColor = txtPrice
          amountTxt.font = Font.systemFont(16)
          amountTxt.centerAlignText()
@@ -251,19 +251,18 @@ Normal Widget
 ==============================
 */
     else {
-    let w = new ListWidget()
+  let w = new ListWidget()
   let w2 = ListWidget
     let st1 = w.addStack()  
-      st1.addSpacer()
-      st1.borderColor=Color.red()
+        st1.addSpacer()
           // Add logo to Widget via api
       const image1 = st1.addImage(image)
             image1.imageSize = new Size(20, 20);
             image1.cornerRadius = 6
-      const text = st1.addText("  " + name + " -" + " USD")
+      const text = st1.addText( name + " -" + " USD")
             text.textColor = txtTitle
             text.font = Font.mediumRoundedSystemFont(16)
-      st1.addSpacer()
+        st1.addSpacer()
             text.centerAlignText()
       
  
