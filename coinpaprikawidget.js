@@ -149,7 +149,14 @@ function abbrNum(number, decPlaces) {
 
 abbrNum(volume, 2); //       => 999.995k
 
-let friendlyFormat = abbrNum(volume, 2);
+let volumeNormal;
+      
+
+if(abbrNum(volume, 2) < 1000) {
+  volumeNormal = volume.toFixed(numberAfterCommaVolume);
+}else {
+volumeNormal = abbrNum(volume, 2);
+}
 //Short the price Live
 const name = (resPaprika.name);
 let roundVolumePaprika = volume.toFixed(numberAfterCommaVolume);
@@ -297,7 +304,8 @@ Normal Widget
   w.addSpacer(2)
   
   
-  let volumeTxt = w.addText("Vol: " + abbrNum(volume, numberAfterCommaVolume) + "$")
+    let volumeTxt = w.addText("Vol: " + volumeNormal + "$")
+
   volumeTxt.textColor = txtVolume
   volumeTxt.font = Font.systemFont(13)
   volumeTxt.centerAlignText()
