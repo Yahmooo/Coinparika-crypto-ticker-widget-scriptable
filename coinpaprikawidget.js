@@ -97,10 +97,7 @@ let logo = (resPaprikaImage.logo)
 let req2 = new Request(logo);
 let image = await req2.loadImage();
 
-//Short the price Live
-const name = (resPaprika.name);
-const volume = (resPaprika.quotes.USD.volume_24h)
-let roundVolumePaprika = volume.toFixed(numberAfterCommaVolume);
+
 
 
 //24 price change
@@ -108,6 +105,7 @@ const percentChange24h = (resPaprika.quotes.USD.percent_change_24h);
 const pricePaprika = Number(resPaprika.quotes.USD.price);
 let roundPricePaprika = pricePaprika.toFixed(numberAfterCommaPrice);
 
+const volume = (resPaprika.quotes.USD.volume_24h)
 //make number to friendly format
 function abbrNum(number, decPlaces) {
     var orig = number;
@@ -151,7 +149,10 @@ function abbrNum(number, decPlaces) {
 
 abbrNum(volume, 2); //       => 999.995k
 
-
+let friendlyFormat = abbrNum(volume, 2);
+//Short the price Live
+const name = (resPaprika.name);
+let roundVolumePaprika = volume.toFixed(numberAfterCommaVolume);
 
 
 /*
@@ -181,11 +182,11 @@ function createWidget(img) {
   /*
 ==============================
 
-Homescreen Param
+Lockscreenbottom param
 
 ==============================
 */
-if(args.widgetParameter == "homescreen") {
+if(args.widgetParameter == "lockscreenbottom") {
   let w = new ListWidget()
 
   // Check if percent is in minus or plus
@@ -204,7 +205,7 @@ if(args.widgetParameter == "homescreen") {
   w.addSpacer(2)
  
 
-  let amountTxt = w.addText("Price: " + roundPricePaprika + "$")
+  let amountTxt = w.addText("price: " + roundPricePaprika + "$")
   amountTxt.textColor = txtPrice
   amountTxt.font = Font.systemFont(14)
   amountTxt.centerAlignText()
@@ -217,7 +218,7 @@ if(args.widgetParameter == "homescreen") {
   w.addSpacer(2)
   
   
-  let volumeTxt = w.addText("Vol: " + abbrNum(volume, 2) + "$")
+  let volumeTxt = w.addText("Vol: " + abbrNum(volume, numberAfterCommaVolume) + "$")
   volumeTxt.textColor = txtVolume
   volumeTxt.font = Font.systemFont(14)
   volumeTxt.centerAlignText()
@@ -228,13 +229,13 @@ if(args.widgetParameter == "homescreen") {
   /*
 ==============================
 
-Homescreentop Param
+Lockscreentop Param
 
 ==============================
 */
-  } else if(args.widgetParameter == "homescreentop") {
+  } else if(args.widgetParameter == "lockscreentop") {
      let w = new ListWidget()
-     let amountTxt = w.addText("Price: " + roundPricePaprika + "$")
+     let amountTxt = w.addText(name + ":" + roundPricePaprika + "$")
          amountTxt.textColor = txtPrice
          amountTxt.font = Font.systemFont(16)
          amountTxt.centerAlignText()
@@ -271,7 +272,7 @@ Normal Widget
   let isMinus = Math.sign(percentChange24h)
 
   let percentTxt = w.addText(percentChange24h + "%")
-  percentTxt.font = Font.systemFont(16)
+  percentTxt.font = Font.systemFont(15)
   percentTxt.centerAlignText()
   if (isMinus == -1) {
     percentTxt.textColor = minusPercent
@@ -283,9 +284,9 @@ Normal Widget
   w.addSpacer(2)
  
 
-  let amountTxt = w.addText("Price: " + roundPricePaprika + "$")
+  let amountTxt = w.addText("price: " + roundPricePaprika + "$")
   amountTxt.textColor = txtPrice
-  amountTxt.font = Font.systemFont(16)
+  amountTxt.font = Font.systemFont(13)
   amountTxt.centerAlignText()
 
   //   let currencyTxt = w.addText(currency)
@@ -296,9 +297,9 @@ Normal Widget
   w.addSpacer(2)
   
   
-  let volumeTxt = w.addText("Vol: " + abbrNum(volume, 2) + "$")
+  let volumeTxt = w.addText("Vol: " + abbrNum(volume, numberAfterCommaVolume) + "$")
   volumeTxt.textColor = txtVolume
-  volumeTxt.font = Font.systemFont(16)
+  volumeTxt.font = Font.systemFont(13)
   volumeTxt.centerAlignText()
   
    w.addSpacer(8)
