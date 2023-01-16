@@ -3,6 +3,9 @@
 This is a simple iOS widget for the app **Scriptable** that allows you to see the current price of various cryptocurrencies listed on **CoinPaprika**. The widget has two display options:
 ![C3F62B9A-F00F-4D03-82DC-AF6F39616AC4](https://user-images.githubusercontent.com/101056553/212693340-cf0550a7-c584-48b7-b515-4dd0f19fda81.png)
 
+**IMPORTANT**
+You only have 60 Api requests per hour so don't reload the script to often.
+
 **Params**
 
 > **lockscreentoplockscreentop**: This option displays the current price of the cryptocurrency on top of the clock on the lock screen.
