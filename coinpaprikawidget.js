@@ -217,15 +217,10 @@ if(args.widgetParameter == "lockscreenbottom") {
   amountTxt.font = Font.systemFont(14)
   amountTxt.centerAlignText()
 
-  //   let currencyTxt = w.addText(currency)
-  //   currencyTxt.textColor = Color.gray()
-  //   currencyTxt.font = Font.systemFont(10)
-  //   currencyTxt.centerAlignText()
-
   w.addSpacer(2)
   
   
-  let volumeTxt = w.addText("Vol: " + abbrNum(volume, numberAfterCommaVolume) + "$")
+  let volumeTxt = w.addText("Vol: " + volumeNormal + "$")
   volumeTxt.textColor = txtVolume
   volumeTxt.font = Font.systemFont(14)
   volumeTxt.centerAlignText()
