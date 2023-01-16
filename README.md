@@ -1,8 +1,10 @@
 # **CoinPaprika Widget for Scriptable**
 
 This is a simple iOS widget for the app **Scriptable** that allows you to see the current price of various cryptocurrencies listed on **CoinPaprika**. The widget has two display options:
-[![Download with ScriptDude](https://scriptdu.de/download.svg)](https://scriptdu.de/?name=CoinPaprika+Widget+for+Scriptable&source=https%3A%2F%2Fgist.github.com%2FYahmooo%2Fc8bc55f0a59c6ae27b2ccdb7531a0ca9&docs=https%3A%2F%2Fgithub.com%2FYahmooo%2FCoinparika-crypto-ticker-widget-scriptable#)
 ![C3F62B9A-F00F-4D03-82DC-AF6F39616AC4](https://user-images.githubusercontent.com/101056553/212693340-cf0550a7-c584-48b7-b515-4dd0f19fda81.png)
+
+[![Download with ScriptDude](https://scriptdu.de/download.svg)](https://scriptdu.de/?name=CoinPaprika+Widget+for+Scriptable&source=https%3A%2F%2Fgist.github.com%2FYahmooo%2Fc8bc55f0a59c6ae27b2ccdb7531a0ca9&docs=https%3A%2F%2Fgithub.com%2FYahmooo%2FCoinparika-crypto-ticker-widget-scriptable#)
+
 
 **IMPORTANT**
 You only have 60 Api requests per hour so don't reload the script to often.
